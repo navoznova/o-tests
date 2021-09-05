@@ -1,8 +1,9 @@
 import * as cheerio from 'cheerio';
 import { get } from '../request';
+import { environment } from '../../src/environments/environment';
 
 test('Meeting page has meta', async () => {
-  const response = await get(`/study/geography/group-lessons/London-is-a-capital-of-Great-Britain-r0fa4z0f`);
+  const response = await get(`${environment.portal_url}/study/geography/group-lessons/London-is-a-capital-of-Great-Britain-r0fa4z0f`);
   expect(response.status).toBe(200);
 
   const $ = cheerio.load(response.data);
