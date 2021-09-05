@@ -7,6 +7,13 @@ test('get meeting by id', async () => {
   expect(response.status).toBe(200);
 
   const meeting = response.data;
+  expect(meeting.title).toBe('London is a capital of Great Britain');
+
+  expect(meeting.cover.mdX2.url).toContain('');
+  // или так expect(meeting.cover.mdX2).toHaveProperty('url');
+
+  expect(meeting.subject.title).toBe('Geography');
+
 
   // TODO expect(meeting.title).toBe(???);
   // TODO cover.mdX2.url
